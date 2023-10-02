@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/views/currentWeather.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,16 +33,33 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: Color(0xFFf9f9f9),
       appBar: AppBar(
+        elevation: 0.5,
         backgroundColor: Color(0xffF0ECFF),
-        title: const Text('Weather App',style: TextStyle(
-          fontWeight: FontWeight.bold,
-          // fontFamily: 'Open Sans'
-        ),),
+        title: const Text(
+          'Weather App',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         centerTitle: true,
-        leading: IconButton(onPressed: (){},icon:const Icon(Icons.menu),),
+        leading: IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.menu),
+        ),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const SizedBox(height: 20,),
+          currentWeather(Icons.wb_sunny_rounded, '23.5', 'Bangalore'),
+          const SizedBox(height: 60,),
+          const Text('Additional Information',style:TextStyle(
+            fontSize: 24,
+            color: Color(0xdd212121),
+            fontWeight: FontWeight.bold
+          ))
+        ],
       ),
     );
   }
 }
-
-
